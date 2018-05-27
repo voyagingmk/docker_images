@@ -1,2 +1,2 @@
 #!/bin/bash
-docker image build -t my_centos_wynet .
+docker image build $1 -t my_centos_wynet .
