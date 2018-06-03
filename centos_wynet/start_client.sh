@@ -1,1 +1,1 @@
-./github/wynet/build/bench_client localhost 9999 16384 10
+./github/wynet/build/bench_client localhost 9999 3 16384 10000 120

@@ -1,1 +1,1 @@
-./github/wynet/build/bench_server localhost 9999 1
+./github/wynet/build/bench_server localhost 9999 3

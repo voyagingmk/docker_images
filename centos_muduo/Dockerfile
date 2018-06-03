@@ -1,5 +1,4 @@
-FROM my_centos
-WORKDIR ~/
+FROM my_cento
 RUN mkdir github && cd github && git clone https://github.com/chenshuo/muduo.git
 RUN cd github/muduo && sh ./build.sh -j2 &&  cd ../build/release
 COPY ./start_server.sh .

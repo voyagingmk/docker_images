@@ -9,4 +9,5 @@ RUN yum -y install boost
 RUN yum -y install boost-devel
 RUN yum -y groupinstall "Development tools"
 RUN yum -y install net-tools
+RUN yum -y install tcpdump
 
