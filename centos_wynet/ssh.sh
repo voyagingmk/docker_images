@@ -1,1 +1,0 @@
-ssh -p 32000 root@localhost

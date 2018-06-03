@@ -11,3 +11,4 @@ RUN yum -y groupinstall "Development tools"
 RUN yum -y install net-tools
 RUN yum -y install tcpdump
 RUN yum -y install openssh-server openssh-clients
+RUN yum -y install initscripts
