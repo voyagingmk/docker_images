@@ -1,0 +1,1 @@
+pprof --text ~/github/wynet/build/bench_client ./client/client.prof
