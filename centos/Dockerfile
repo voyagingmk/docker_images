@@ -12,3 +12,10 @@ RUN yum -y install net-tools
 RUN yum -y install tcpdump
 RUN yum -y install openssh-server openssh-clients
 RUN yum -y install initscripts
+RUN yum -y install graphviz
+RUN curl -L https://github.com/libunwind/libunwind/releases/download/v1.2.1/libunwind-1.2.1.tar.gz -o libunwind-1.2.1.tar.gz
+RUN curl -L https://github.com/gperftools/gperftools/releases/download/gperftools-2.7/gperftools-2.7.tar.gz -o gperftools-2.7.tar.gz
+RUN tar zxvf libunwind-1.2.1.tar.gz
+RUN tar zxvf gperftools-2.7.tar.gz
+RUN cd libunwind-1.2.1 && ./configure && make && make install
+RUN cd gperftools-2.7 && ./configure --enable-frame-pointers && make && make install
