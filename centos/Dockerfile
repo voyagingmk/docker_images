@@ -19,3 +19,6 @@ RUN tar zxvf libunwind-1.2.1.tar.gz
 RUN tar zxvf gperftools-2.7.tar.gz
 RUN cd libunwind-1.2.1 && ./configure && make && make install
 RUN cd gperftools-2.7 && ./configure --enable-frame-pointers && make && make install
+RUN yum -y install perf
+RUN rm gperftools-2.7.tar.gz && rm libunwind-1.2.1.tar.gz
+RUN rm -rf libunwind-1.2.1 && rm -rf gperftools-2.7
