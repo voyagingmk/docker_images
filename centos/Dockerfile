@@ -23,3 +23,4 @@ RUN yum -y install perf
 RUN rm gperftools-2.7.tar.gz && rm libunwind-1.2.1.tar.gz
 RUN rm -rf libunwind-1.2.1 && rm -rf gperftools-2.7
 RUN yum -y install lsof
+RUN yum -y install strace
