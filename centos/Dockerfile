@@ -28,6 +28,7 @@ RUN yum -y install bind-utils
 RUN yum -y install wget
 RUN wget https://www.openssl.org/source/openssl-1.1.1-pre8.tar.gz 
 RUN tar zxvf openssl-1.1.1-pre8.tar.gz
-RUN cd openssl-1.1.1-pre8 && make && make install
+RUN cd openssl-1.1.1-pre8 && ./config enable-ssl-trace && make && make install
+RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib64
 
 
