@@ -25,3 +25,9 @@ RUN rm -rf libunwind-1.2.1 && rm -rf gperftools-2.7
 RUN yum -y install lsof
 RUN yum -y install strace
 RUN yum -y install bind-utils
+RUN yum -y install wget
+RUN wget https://www.openssl.org/source/openssl-1.1.1-pre8.tar.gz 
+RUN tar zxvf openssl-1.1.1-pre8.tar.gz
+RUN cd openssl-1.1.1-pre8 && make && make install
+
+
