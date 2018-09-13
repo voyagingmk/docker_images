@@ -31,5 +31,9 @@ RUN tar zxvf openssl-1.1.1.tar.gz
 RUN cd openssl-1.1.1 && ./config enable-ssl-trace && make && make install
 RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib64
 RUN yum -y install which
-
+RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -q -N ""
+RUN ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -q -N ""
+RUN ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -q -N ""
+RUN ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
+EXPOSE 22
 

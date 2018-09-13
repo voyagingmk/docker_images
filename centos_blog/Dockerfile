@@ -7,3 +7,5 @@ RUN /bin/bash -l -c "rvm pkg install openssl"
 RUN /bin/bash -l -c "rvm install 2.3 --with-openssl-dir=/usr/local/rvm/usr"
 RUN /bin/bash -l -c "gem update && gem install jekyll jekyll-tagging jekyll-sitemap pygments.rb redcarpet"
 RUN mkdir github && cd github && git clone https://github.com/wyman1024/wyman1024.github.io.jekyll-now.git blog
+COPY ./id_rsa.pub  ./.ssh/authorized_keys
+COPY ./initssh.sh .
