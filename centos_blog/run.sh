@@ -1,1 +1,1 @@
-docker container run --rm -it --name blog my_centos_blog
+docker container run --rm -it -p 14000:4000 --name blog my_centos_blog
