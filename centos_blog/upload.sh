@@ -1,11 +1,11 @@
 pkill -f jekyll
 cd ./github/blog/
-jekyll -b
+jekyll b
 cd ../ 
 /bin/cp -rf blog/_site/*  release/
 cd ./release
 git add *
 git commit -m "auto upload"
-git push master
+git push origin
 cd ../../
 sh ./all.sh
