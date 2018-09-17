@@ -16,6 +16,5 @@ RUN /bin/bash -l -c "chmod 400 ~/.ssh/id_rsa"
 RUN mkdir github
 RUN cd github && git clone https://github.com/wyman1024/wyman1024.github.io.jekyll-now.git blog
 RUN cd github && git clone git@github.com:wyman1024/wyman1024.github.io.git release
+COPY ./upload.sh .
 COPY ./all.sh .
-COPY ./upload.sh .
-COPY ./upload.sh .

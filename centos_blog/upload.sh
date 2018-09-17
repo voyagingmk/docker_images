@@ -6,6 +6,6 @@ cd ../
 cd ./release
 git add *
 git commit -m "auto upload"
-git push
+git push master
 cd ../../
 sh ./all.sh
