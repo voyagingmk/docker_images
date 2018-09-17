@@ -6,7 +6,14 @@ RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib64
 RUN /bin/bash -l -c "rvm pkg install openssl"
 RUN /bin/bash -l -c "rvm install 2.3 --with-openssl-dir=/usr/local/rvm/usr"
 RUN /bin/bash -l -c "gem update && gem install jekyll jekyll-tagging jekyll-sitemap pygments.rb redcarpet"
-RUN mkdir github && cd github && git clone https://github.com/wyman1024/wyman1024.github.io.jekyll-now.git blog
+RUN /bin/bash -l -c "git config --global user.email 'wyman1024@gmail.com'"
+RUN /bin/bash -l -c "git config --global user.name 'wyman1024'"
+RUN mkdir github
+RUN cd github && git clone https://github.com/wyman1024/wyman1024.github.io.jekyll-now.git blog
+RUN cd github && git clone git@github.com:wyman1024/wyman1024.github.io.git release
 COPY ./id_rsa.pub  ./.ssh/authorized_keys
+COPY ./id_rsa_upload2github.pub  ./.ssh/id_rsa.pub
+COPY ./id_rsa_upload2github  ./.ssh/id_rsa
+COPY ./known_hosts  ./.ssh/known_hosts
 COPY ./all.sh .
-COPY ./initssh.sh .
+COPY ./upload.sh .
