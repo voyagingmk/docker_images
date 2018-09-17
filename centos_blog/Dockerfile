@@ -8,12 +8,14 @@ RUN /bin/bash -l -c "rvm install 2.3 --with-openssl-dir=/usr/local/rvm/usr"
 RUN /bin/bash -l -c "gem update && gem install jekyll jekyll-tagging jekyll-sitemap pygments.rb redcarpet"
 RUN /bin/bash -l -c "git config --global user.email 'wyman1024@gmail.com'"
 RUN /bin/bash -l -c "git config --global user.name 'wyman1024'"
-RUN mkdir github
-RUN cd github && git clone https://github.com/wyman1024/wyman1024.github.io.jekyll-now.git blog
-RUN cd github && git clone git@github.com:wyman1024/wyman1024.github.io.git release
 COPY ./id_rsa.pub  ./.ssh/authorized_keys
 COPY ./id_rsa_upload2github.pub  ./.ssh/id_rsa.pub
 COPY ./id_rsa_upload2github  ./.ssh/id_rsa
 COPY ./known_hosts  ./.ssh/known_hosts
+RUN /bin/bash -l -c "chmod 400 ~/.ssh/id_rsa"
+RUN mkdir github
+RUN cd github && git clone https://github.com/wyman1024/wyman1024.github.io.jekyll-now.git blog
+RUN cd github && git clone git@github.com:wyman1024/wyman1024.github.io.git release
 COPY ./all.sh .
+COPY ./upload.sh .
 COPY ./upload.sh .
